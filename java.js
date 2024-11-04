@@ -27,8 +27,8 @@ window.onload = function(){
         context = board.getContext("2d");
 
         //draw doodler(Jimbo)
-        context.fillStyle = "green";
-        context.fillRect(doodler.x, doodler.y, doodler.width, doodler.height);
+       // context.fillStyle = "green";
+       // context.fillRect(doodler.x, doodler.y, doodler.width, doodler.height);
 
         //load images
 
@@ -38,4 +38,7 @@ window.onload = function(){
         doodlerRightImg.onload = function() {
             context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height)
         }
+
+        doodlerLeftImg = new Image();
+        doodlerLeftImg.src = "./doodler-left.png";
 }
