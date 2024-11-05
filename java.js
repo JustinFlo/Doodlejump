@@ -12,6 +12,11 @@ let doodlerY = boardHeight*7/8 - doodleHeight;
 let doodlerRightImg;
 let doodlerLeftImg;
 
+//physics
+let velocityX = 0;
+
+//platforms
+
 let doodler = {
     img : null,
     x : doodlerX,
@@ -41,4 +46,34 @@ window.onload = function(){
 
         doodlerLeftImg = new Image();
         doodlerLeftImg.src = "./doodler-left.png";
+    
+        requestAnimationFrame(update);
+        document.addEventListener("keydown", moveDoodler);
+}
+
+function update(){
+    requestAnimationFrame(update);
+    context.clearRect(0, 0 , board.width, board.height),  
+
+    //doodler
+    doodler.x += velocityX;
+    if (doodler.x > boardWidth){
+        doodler.x = 0;
+    }
+    else if (doodler.x + doodler.width < 0){
+        doodler.x = boardWidth;
+    }
+    context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height)
+
+}
+
+function moveDoodler(e) {
+    if (e.code == "ArrowRight" || e.code == "KeyD"){ //move right
+        velocityX = 4;
+        doodler.img = doodlerRightImg;
+    }
+    else if(e.code == "Arrowllift" || e.code =="KeyA"){ //move left
+        velocityX = -4;
+        doodler.img = doodlerLeftImg;
+    }
 }
