@@ -29,7 +29,7 @@ let gravity = 0.4;
 //platforms
 let platformArray = [];
 let platformWidth = 60;
-let platformHeight = 18;
+let platformHeight = 70;
 let platformImg;
 
 let score = 0;
@@ -49,14 +49,14 @@ window.onload = function(){
         //load images
 
         doodlerRightImg = new Image();
-        doodlerRightImg.src = "./doodler-right.png"; //look back, should show image
+        doodlerRightImg.src = "./jimbo-right.png"; //look back, should show image
         doodler.img = doodlerRightImg;
         doodlerRightImg.onload = function() {
             context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height)
         }
 
         doodlerLeftImg = new Image();
-        doodlerLeftImg.src = "./doodler-left.png";
+        doodlerLeftImg.src = "./jimbo.png";
 
         platformImg = new Image();
         platformImg.src = "./platform.png"
@@ -152,7 +152,7 @@ function placePlatforms(){
 
     let platform = {
         img : platformImg,
-        x : boardWidth/2,
+        x : boardWidth/20,
         y: boardHeight - 50,
         width : platformWidth,
         height : platformHeight
